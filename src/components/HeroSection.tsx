@@ -553,39 +553,6 @@ function ScrollIndicator() {
   );
 }
 
-/** Wave + cloud soft transition to next section */
-function WaveTransition() {
-  return (
-    <div
-      aria-hidden="true"
-      className="absolute bottom-0 left-0 right-0 z-20 pointer-events-none"
-    >
-      {/* Soft cloud layer */}
-      <div
-        className="h-16 md:h-24 w-full"
-        style={{
-          background:
-            "linear-gradient(to bottom, transparent, rgba(10,15,46,0.6) 60%, rgba(10,15,46,0.95))",
-        }}
-      />
-      {/* SVG wave */}
-      <svg
-        viewBox="0 0 1440 80"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="block w-full -mt-1"
-        preserveAspectRatio="none"
-      >
-        <path
-          d="M0,40 C180,0 360,70 540,35 C720,0 900,65 1080,30 C1260,0 1380,55 1440,40 L1440,80 L0,80 Z"
-          fill="#0a0f2e"
-          fillOpacity="0.95"
-        />
-      </svg>
-      <div className="h-2 bg-[#0a0f2e]" />
-    </div>
-  );
-}
 
 /** Video background with delayed autoplay */
 function VideoBackground({
@@ -705,8 +672,6 @@ export default function HeroSection() {
       {/* ── Layer 8: Scroll indicator ── */}
       <ScrollIndicator />
 
-      {/* ── Layer 9: Wave bottom transition ── */}
-      <WaveTransition />
     </section>
   );
 }
