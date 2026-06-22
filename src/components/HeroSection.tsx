@@ -266,6 +266,27 @@ function PlanetDecorations({ scrollYProgress }: { scrollYProgress: MotionValue<n
             "0 0 20px rgba(244,63,94,0.5), 0 0 50px rgba(244,63,94,0.2)",
         }}
       />
+
+      {/* Ice-blue planet – bottom-right, covers watermark area */}
+      <div
+        className="absolute -bottom-10 -right-10 w-36 h-36 md:w-48 md:h-48 rounded-full"
+        style={{
+          background:
+            "radial-gradient(circle at 30% 28%, #bae6fd 0%, #38bdf8 30%, #0369a1 65%, #082f49 100%)",
+          boxShadow:
+            "0 0 40px rgba(56,189,248,0.5), 0 0 80px rgba(56,189,248,0.2), inset 0 0 40px rgba(0,0,0,0.5)",
+        }}
+      >
+        {/* Surface band */}
+        <span
+          className="absolute rounded-full pointer-events-none"
+          style={{
+            top: "42%", left: "10%", right: "10%", height: "14%",
+            background: "rgba(186,230,253,0.18)",
+            filter: "blur(3px)",
+          }}
+        />
+      </div>
     </div>
   );
 }
@@ -620,14 +641,6 @@ function VideoBackground({
         }}
       />
 
-      {/* Bottom-right corner: covers watermark with theme-matching fade */}
-      <div
-        className="absolute bottom-0 right-0 w-72 h-28 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 100% 100%, rgba(10,15,46,1) 0%, rgba(10,15,46,0.85) 30%, rgba(10,15,46,0.4) 55%, transparent 75%)",
-        }}
-      />
     </div>
   );
 }
