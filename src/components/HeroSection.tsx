@@ -200,9 +200,9 @@ function PlanetDecorations({ scrollYProgress }: { scrollYProgress: MotionValue<n
       aria-hidden="true"
       className="absolute inset-0 overflow-hidden pointer-events-none"
     >
-      {/* Large purple planet – top right */}
+      {/* Large purple planet – bottom right */}
       <motion.div
-        className="absolute -top-24 -right-16 w-72 h-72 md:w-96 md:h-96 rounded-full"
+        className="absolute -bottom-24 -right-16 w-72 h-72 md:w-96 md:h-96 rounded-full"
         style={{
           background:
             "radial-gradient(circle at 32% 32%, #a78bfa 0%, #7c3aed 40%, #4c1d95 70%, #1e0a4f 100%)",
@@ -267,26 +267,6 @@ function PlanetDecorations({ scrollYProgress }: { scrollYProgress: MotionValue<n
         }}
       />
 
-      {/* Ice-blue planet – bottom-right, covers watermark area */}
-      <div
-        className="absolute -bottom-10 -right-10 w-36 h-36 md:w-48 md:h-48 rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle at 30% 28%, #bae6fd 0%, #38bdf8 30%, #0369a1 65%, #082f49 100%)",
-          boxShadow:
-            "0 0 40px rgba(56,189,248,0.5), 0 0 80px rgba(56,189,248,0.2), inset 0 0 40px rgba(0,0,0,0.5)",
-        }}
-      >
-        {/* Surface band */}
-        <span
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            top: "42%", left: "10%", right: "10%", height: "14%",
-            background: "rgba(186,230,253,0.18)",
-            filter: "blur(3px)",
-          }}
-        />
-      </div>
     </div>
   );
 }
