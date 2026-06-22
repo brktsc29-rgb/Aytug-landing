@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: #0a0f2e;
+  --color-foreground: #ffffff;
+
+  --color-navy-950: #05081a;
+  --color-navy-900: #0a0f2e;
+  --color-navy-800: #0d1445;
+
+  --font-fredoka: var(--font-fredoka-one), "Fredoka One", system-ui, sans-serif;
+  --font-nunito: var(--font-nunito-var), "Nunito", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background: #0a0f2e;
+  color: #ffffff;
+}
+
+/* ─── Text glow animations ─── */
+@keyframes glow-idle {
+  0%, 100% {
+    text-shadow:
+      0 0 20px rgba(167, 139, 250, 0.5),
+      0 0 40px rgba(251, 191, 36, 0.3),
+      0 4px 20px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow:
+      0 0 35px rgba(167, 139, 250, 0.75),
+      0 0 70px rgba(251, 191, 36, 0.5),
+      0 4px 20px rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes glow-active {
+  0%, 100% {
+    text-shadow:
+      0 0 30px rgba(167, 139, 250, 0.9),
+      0 0 60px rgba(251, 191, 36, 0.6),
+      0 0 100px rgba(249, 115, 22, 0.4),
+      0 4px 20px rgba(0, 0, 0, 0.8);
+  }
+  50% {
+    text-shadow:
+      0 0 50px rgba(167, 139, 250, 1),
+      0 0 100px rgba(251, 191, 36, 0.85),
+      0 0 150px rgba(249, 115, 22, 0.6),
+      0 4px 20px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* ─── Gradient text shimmer ─── */
+@keyframes shimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+/* ─── Scroll indicator ─── */
+@keyframes scroll-dot {
+  0%   { transform: translateY(0); opacity: 0.9; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+
+/* ─── Planet drift ─── */
+@keyframes planet-drift {
+  0%, 100% { transform: translateY(0px) translateX(0px); }
+  33%       { transform: translateY(-14px) translateX(6px); }
+  66%       { transform: translateY(9px) translateX(-5px); }
+}
+
+/* ─── Orb pulse for ambient lights ─── */
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50%       { opacity: 0.55; transform: scale(1.12); }
+}
+
+/* ─── Bounce for scroll arrow ─── */
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+.animate-glow-idle   { animation: glow-idle   3s ease-in-out infinite; }
+.animate-glow-active { animation: glow-active  2s ease-in-out infinite; }
+.animate-shimmer     { animation: shimmer      4s linear infinite; }
+.animate-orb         { animation: orb-pulse    7s ease-in-out infinite; }
+.animate-planet      { animation: planet-drift 7s ease-in-out infinite; }
+.animate-bounce-soft { animation: bounce-soft  1.6s ease-in-out infinite; }
+.animate-scroll-dot  { animation: scroll-dot   1.5s ease-in-out infinite; }
+
+/* ─── Gradient text helper ─── */
+.gradient-title {
+  background: linear-gradient(90deg, #fbbf24 0%, #f97316 30%, #a78bfa 65%, #fbbf24 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── Glass card ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* ─── Vignette helper (used via inline style for performance) ─── */
+
+/* ─── prefers-reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
