@@ -624,8 +624,10 @@ function VideoBackground({
   }, [onVideoStart]);
 
   const handleEnded = useCallback(() => {
-    /* Pause on the final frame – do not loop */
-    videoRef.current?.pause();
+    const v = videoRef.current;
+    if (!v) return;
+    v.currentTime = 0;
+    v.play().catch(() => {});
   }, []);
 
   return (
