@@ -658,7 +658,7 @@ function VideoBackground({
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,15,46,0.55) 0%, transparent 28%, transparent 65%, rgba(10,15,46,0.9) 100%)",
+            "linear-gradient(to bottom, rgba(10,15,46,0.5) 0%, transparent 25%, transparent 82%, rgba(10,15,46,0.85) 100%)",
         }}
       />
 
