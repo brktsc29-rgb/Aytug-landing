@@ -619,6 +619,15 @@ function VideoBackground({
             "linear-gradient(to right, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.12) 45%, transparent 80%)",
         }}
       />
+
+      {/* Bottom-right corner: covers watermark with theme-matching fade */}
+      <div
+        className="absolute bottom-0 right-0 w-72 h-28 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at 100% 100%, rgba(10,15,46,1) 0%, rgba(10,15,46,0.85) 30%, rgba(10,15,46,0.4) 55%, transparent 75%)",
+        }}
+      />
     </div>
   );
 }
