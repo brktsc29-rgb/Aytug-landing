@@ -202,14 +202,13 @@ function PlanetDecorations({ scrollYProgress }: { scrollYProgress: MotionValue<n
     >
       {/* Large purple planet – top right */}
       <motion.div
-        className="absolute -top-24 -right-16 w-72 h-72 md:w-96 md:h-96 rounded-full animate-planet"
+        className="absolute -top-24 -right-16 w-72 h-72 md:w-96 md:h-96 rounded-full"
         style={{
           background:
             "radial-gradient(circle at 32% 32%, #a78bfa 0%, #7c3aed 40%, #4c1d95 70%, #1e0a4f 100%)",
           boxShadow:
             "0 0 80px rgba(124,58,237,0.5), 0 0 160px rgba(124,58,237,0.2), inset 0 0 60px rgba(0,0,0,0.6)",
           y: y1,
-          animationDelay: "0s",
         }}
       >
         {/* Ring */}
@@ -235,39 +234,36 @@ function PlanetDecorations({ scrollYProgress }: { scrollYProgress: MotionValue<n
 
       {/* Gold planet – left edge */}
       <motion.div
-        className="absolute top-[28%] -left-12 w-36 h-36 md:w-44 md:h-44 rounded-full animate-planet"
+        className="absolute top-[28%] -left-12 w-36 h-36 md:w-44 md:h-44 rounded-full"
         style={{
           background:
             "radial-gradient(circle at 35% 30%, #fef08a 0%, #fbbf24 35%, #d97706 65%, #78350f 100%)",
           boxShadow:
             "0 0 50px rgba(251,191,36,0.45), 0 0 100px rgba(251,191,36,0.18)",
           y: y2,
-          animationDelay: "2s",
         }}
       />
 
       {/* Teal mini planet – upper center-left */}
       <motion.div
-        className="absolute top-16 left-[22%] md:left-[28%] w-14 h-14 md:w-20 md:h-20 rounded-full animate-planet"
+        className="absolute top-16 left-[22%] md:left-[28%] w-14 h-14 md:w-20 md:h-20 rounded-full"
         style={{
           background:
             "radial-gradient(circle at 35% 35%, #6ee7b7 0%, #10b981 45%, #065f46 100%)",
           boxShadow:
             "0 0 30px rgba(16,185,129,0.55), 0 0 60px rgba(16,185,129,0.2)",
           y: y3,
-          animationDelay: "1.2s",
         }}
       />
 
       {/* Rose/pink micro planet – right side */}
-      <motion.div
-        className="absolute top-[55%] right-[8%] md:right-[12%] w-10 h-10 md:w-16 md:h-16 rounded-full animate-planet"
+      <div
+        className="absolute top-[55%] right-[8%] md:right-[12%] w-10 h-10 md:w-16 md:h-16 rounded-full"
         style={{
           background:
             "radial-gradient(circle at 35% 35%, #fda4af 0%, #f43f5e 50%, #9f1239 100%)",
           boxShadow:
             "0 0 20px rgba(244,63,94,0.5), 0 0 50px rgba(244,63,94,0.2)",
-          animationDelay: "3.5s",
         }}
       />
     </div>
@@ -403,23 +399,12 @@ function HeroContent({ videoStarted }: { videoStarted: boolean }) {
           style={{
             background: "rgba(251,191,36,0.12)",
             border: "1px solid rgba(251,191,36,0.4)",
-            backdropFilter: "blur(10px)",
             fontFamily: "var(--font-nunito)",
           }}
         >
-          <motion.span
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.4, repeat: Infinity }}
-          >
-            ⭐
-          </motion.span>
+          <span>⭐</span>
           Sihirli Dünya Açık!
-          <motion.span
-            animate={{ opacity: [1, 0.3, 1] }}
-            transition={{ duration: 1.4, repeat: Infinity, delay: 0.7 }}
-          >
-            ⭐
-          </motion.span>
+          <span>⭐</span>
         </motion.div>
 
         {/* Title */}
@@ -431,10 +416,11 @@ function HeroContent({ videoStarted }: { videoStarted: boolean }) {
             opacity: { duration: 0.85, delay: 0.7 },
             y:       { duration: 0.85, delay: 0.7, ease: "easeOut" },
           }}
-          className={`mb-6 text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] text-white ${
-            videoStarted ? "animate-glow-active" : "animate-glow-idle"
-          }`}
-          style={{ fontFamily: "var(--font-fredoka)" }}
+          className="mb-6 text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] text-white"
+          style={{
+            fontFamily: "var(--font-fredoka)",
+            textShadow: "0 0 25px rgba(167,139,250,0.6), 0 0 50px rgba(251,191,36,0.35), 0 4px 20px rgba(0,0,0,0.8)",
+          }}
         >
           AYTUĞ&apos;UN
           <br />
@@ -520,7 +506,6 @@ function HeroContent({ videoStarted }: { videoStarted: boolean }) {
               background: "rgba(255,255,255,0.07)",
               border: "2px solid rgba(251,191,36,0.65)",
               color: "#fbbf24",
-              backdropFilter: "blur(14px)",
               boxShadow: "0 0 20px rgba(251,191,36,0.2)",
             }}
           >
