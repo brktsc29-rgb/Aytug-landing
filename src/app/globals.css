@@ -115,7 +115,20 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-/* ─── Vignette helper (used via inline style for performance) ─── */
+/* ─── Star twinkle (CSS-only, GPU composited) ─── */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50%       { opacity: 0.04; transform: scale(1.35); }
+}
+.animate-twinkle { animation: twinkle var(--dur, 3s) var(--del, 0s) ease-in-out infinite; }
+
+/* ─── Particle float (CSS-only, GPU composited) ─── */
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0)    translateX(0); }
+  33%       { transform: translateY(-22px) translateX(8px); }
+  66%       { transform: translateY(7px)  translateX(-6px); }
+}
+.animate-float { animation: float-particle var(--dur, 10s) var(--del, 0s) ease-in-out infinite; }
 
 /* ─── prefers-reduced-motion ─── */
 @media (prefers-reduced-motion: reduce) {

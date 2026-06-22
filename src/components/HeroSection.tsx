@@ -48,11 +48,11 @@ interface SparkleData {
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
-/** Twinkling star field */
+/** Twinkling star field — pure CSS, no JS animation overhead */
 function StarField() {
   const stars = useMemo<StarData[]>(
     () =>
-      Array.from({ length: 160 }, (_, i) => ({
+      Array.from({ length: 80 }, (_, i) => ({
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
@@ -70,38 +70,38 @@ function StarField() {
       className="absolute inset-0 overflow-hidden pointer-events-none"
     >
       {stars.map((s) => (
-        <motion.span
+        <span
           key={s.id}
-          className="absolute rounded-full bg-white"
+          className="absolute rounded-full bg-white animate-twinkle"
           style={{
             left: `${s.x}%`,
             top: `${s.y}%`,
             width: s.size,
             height: s.size,
             opacity: s.opacity,
-          }}
-          animate={{ opacity: [s.opacity, s.opacity * 0.15, s.opacity], scale: [1, 1.6, 1] }}
-          transition={{ duration: s.duration, delay: s.delay, repeat: Infinity, ease: "easeInOut" }}
+            ["--dur" as string]: `${s.duration}s`,
+            ["--del" as string]: `${s.delay}s`,
+          } as React.CSSProperties}
         />
       ))}
     </div>
   );
 }
 
-/** Floating coloured particles */
+/** Floating coloured particles — pure CSS, active state via container opacity */
 function FloatingParticles({ active }: { active: boolean }) {
-  const COLORS = ["#fbbf24", "#f97316", "#a78bfa", "#60a5fa", "#34d399", "#f472b6", "#e879f9"];
+  const COLORS = ["#fbbf24", "#f97316", "#a78bfa", "#60a5fa", "#34d399", "#f472b6"];
 
   const particles = useMemo<ParticleData[]>(
     () =>
-      Array.from({ length: 45 }, (_, i) => ({
+      Array.from({ length: 14 }, (_, i) => ({
         id: i,
         x: Math.random() * 100,
         y: Math.random() * 100,
         size: Math.random() * 5 + 3,
         duration: Math.random() * 9 + 7,
         delay: Math.random() * 6,
-        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        color: COLORS[i % COLORS.length],
       })),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -111,28 +111,24 @@ function FloatingParticles({ active }: { active: boolean }) {
     <div
       aria-hidden="true"
       className="absolute inset-0 overflow-hidden pointer-events-none"
+      style={{
+        opacity: active ? 0.9 : 0.22,
+        transition: "opacity 1.5s ease",
+      }}
     >
       {particles.map((p) => (
-        <motion.span
+        <span
           key={p.id}
-          className="absolute rounded-full"
+          className="absolute rounded-full animate-float"
           style={{
             left: `${p.x}%`,
             top: `${p.y}%`,
             width: p.size,
             height: p.size,
             backgroundColor: p.color,
-            filter: `blur(0.5px) drop-shadow(0 0 4px ${p.color})`,
-          }}
-          animate={{
-            y: [0, -28, 8, -14, 0],
-            x: [0, 8, -6, 10, 0],
-            opacity: active
-              ? [0.75, 0.35, 0.75, 0.55, 0.75]
-              : [0.25, 0.08, 0.25],
-            scale: [1, 1.25, 0.75, 1.1, 1],
-          }}
-          transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
+            ["--dur" as string]: `${p.duration}s`,
+            ["--del" as string]: `${p.delay}s`,
+          } as React.CSSProperties}
         />
       ))}
     </div>
@@ -143,7 +139,7 @@ function FloatingParticles({ active }: { active: boolean }) {
 function SparkleEffect({ visible }: { visible: boolean }) {
   const sparkles = useMemo<SparkleData[]>(
     () =>
-      Array.from({ length: 22 }, (_, i) => ({
+      Array.from({ length: 8 }, (_, i) => ({
         id: i,
         x: Math.random() * 90 + 5,
         y: Math.random() * 90 + 5,
