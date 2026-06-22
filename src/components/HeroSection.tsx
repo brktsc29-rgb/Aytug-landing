@@ -644,21 +644,12 @@ function VideoBackground({
         aria-hidden="true"
       />
 
-      {/* Left text-column overlay – heavier on left, fades right */}
+      {/* Subtle text-readability scrim – left side only */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(to right, rgba(10,15,46,0.88) 0%, rgba(10,15,46,0.55) 45%, rgba(10,15,46,0.15) 100%)",
-        }}
-      />
-
-      {/* Vignette – all four edges */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 50%, transparent 38%, rgba(5,8,26,0.72) 100%)",
+            "linear-gradient(to right, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.12) 45%, transparent 80%)",
         }}
       />
     </div>
