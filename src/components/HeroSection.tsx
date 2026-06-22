@@ -202,7 +202,7 @@ function PlanetDecorations({ scrollYProgress }: { scrollYProgress: MotionValue<n
     >
       {/* Large purple planet – bottom right */}
       <motion.div
-        className="absolute -bottom-24 -right-16 w-72 h-72 md:w-96 md:h-96 rounded-full"
+        className="absolute -bottom-14 -right-10 w-44 h-44 md:w-56 md:h-56 rounded-full"
         style={{
           background:
             "radial-gradient(circle at 32% 32%, #a78bfa 0%, #7c3aed 40%, #4c1d95 70%, #1e0a4f 100%)",
